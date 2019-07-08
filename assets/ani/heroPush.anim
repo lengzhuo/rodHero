@@ -1,0 +1,37 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "heroPush",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.4,
+  "sample": 20,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "890403cc-c4a2-4fd4-8ebc-09a0fb26bf95"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": {
+              "__uuid__": "7d534f0d-1419-474d-8123-045c3e9c05a5"
+            }
+          },
+          {
+            "frame": 0.35,
+            "value": {
+              "__uuid__": "890403cc-c4a2-4fd4-8ebc-09a0fb26bf95"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
