@@ -22,13 +22,16 @@ cc.Class({
         firstLand: cc.Node,
         secondLand: cc.Node,
         overLoad: cc.Node,
+        overLable: cc.Node,
     },
 
     onLoad() {
         // 回调函数中，this指向会改变，定义全局变量gameDir保存this
         gameDir = this;
 
+        // 绑定重新开始游戏逻辑
         gameDir.overLoad.active = false;
+        gameDir.overLable.on(cc.Node.EventType.TOUCH_END, gameDir.gameStrat.bind(gameDir), gameDir.node);
 
         // 生成一块新的地板,
         gameDir.newGround();
@@ -56,6 +59,9 @@ cc.Class({
         if (gameDir.stickLengthen) {
             gameDir.stick.height += dt * gameDir.stickSpeed;
         }
+    },
+    gameStrat() {
+        cc.director.loadScene('game');
     },
 
     touchStart() {

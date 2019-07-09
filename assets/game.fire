@@ -47,8 +47,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.7169776240079136,
-      "y": 0.7169776240079136,
+      "x": 0.6176920572916667,
+      "y": 0.6176920572916667,
       "z": 1
     },
     "_quat": {
@@ -840,6 +840,7 @@
       "y": 200
     },
     "heroWorldPosX": 0,
+    "heroMoveSpeed": 400,
     "currentLandRange": 0,
     "stickWidth": 6,
     "stickSpeed": 400,
@@ -859,6 +860,9 @@
     "secondLand": null,
     "overLoad": {
       "__id__": 21
+    },
+    "overLable": {
+      "__id__": 22
     },
     "_id": "f5XAgiN7NKjasJvI0DOQPJ"
   },
@@ -955,7 +959,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 400,
+      "width": 380,
       "height": 40
     },
     "_anchorPoint": {
@@ -1000,7 +1004,7 @@
     "_useOriginalSize": true,
     "_string": "点击此处重新开始游戏",
     "_N$string": "点击此处重新开始游戏",
-    "_fontSize": 40,
+    "_fontSize": 38,
     "_lineHeight": 40,
     "_enableWrapText": true,
     "_N$file": null,
@@ -1033,7 +1037,7 @@
     "_spacingX": 0,
     "_batchAsBitmap": false,
     "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
+    "_N$verticalAlign": 0,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
     "_N$cacheMode": 0,
