@@ -15,6 +15,7 @@ cc.Class({
         moveDuration: 0.5,
         runLength: 0,
         stickLengthen: false,
+        nowScore: 0,
 
         stick: cc.Node,
         canvas: cc.Node,
@@ -23,6 +24,8 @@ cc.Class({
         secondLand: cc.Node,
         overLoad: cc.Node,
         overLable: cc.Node,
+        MaxScore: cc.Node,
+        score: cc.Node,
     },
 
     onLoad() {
@@ -32,6 +35,11 @@ cc.Class({
         // 绑定重新开始游戏逻辑
         gameDir.overLoad.active = false;
         gameDir.overLable.on(cc.Node.EventType.TOUCH_END, gameDir.gameStrat.bind(gameDir), gameDir.node);
+
+        // 显示最高历史得分
+        var maxScore = window.localStorage.getItem('score');
+        var maxLable = gameDir.MaxScore.getComponent(cc.Label);
+        maxLable.string = '最高分：' + maxScore;
 
         // 生成一块新的地板,
         gameDir.newGround();
@@ -51,7 +59,7 @@ cc.Class({
     },
 
     // 移除事件
-    offEvent(){
+    offEvent() {
         gameDir.canvas.targetOff(gameDir.node);
     },
 
@@ -96,6 +104,8 @@ cc.Class({
             } else {
                 // 成功
                 falg = true;
+                // 增加积分
+                gameDir.addScore();
             }
             gameDir.heroMoveTo(falg);
         });
@@ -106,6 +116,7 @@ cc.Class({
     //进入下一块
     heroMoveTo(falg) {
         gameDir.offEvent();
+        window.localStorage.setItem('score', gameDir.nowScore);
         var length = falg ? gameDir.currentLandRange + gameDir.secondLand.width : gameDir.stick.height;
         var ani = gameDir.hero.getComponent(cc.Animation);
         var callFunc = cc.callFunc(function () {
@@ -199,5 +210,12 @@ cc.Class({
             gameDir.currentLandRange = winSize.width - gameDir.heroWorldPosX - gameDir.hero.width - gameDir.secondLand.width;
         }
         return gameDir.currentLandRange;
+    },
+
+    // 人物积分添加
+    addScore() {
+        var text = gameDir.score.getComponent(cc.Label);
+        gameDir.nowScore += 1;
+        text.string = '得分：' + gameDir.nowScore;
     },
 })
