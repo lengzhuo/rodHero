@@ -39,7 +39,11 @@ cc.Class({
         // 显示最高历史得分
         var maxScore = window.localStorage.getItem('score');
         var maxLable = gameDir.MaxScore.getComponent(cc.Label);
-        maxLable.string = '最高分：' + maxScore;
+        if(maxScore){
+            maxLable.string = '最高分：' + maxScore;
+        }else {
+            maxLable.string = '最高分：0';
+        }
 
         // 生成一块新的地板,
         gameDir.newGround();
